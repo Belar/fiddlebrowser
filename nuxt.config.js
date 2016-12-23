@@ -26,11 +26,12 @@ module.exports = {
    ** Global CSS
    */
   css: [{
-      src: 'bulma',
-      lang: 'sass'
-    },
-    '~assets/css/main.css'
-  ],
+    src: 'bulma',
+    lang: 'sass'
+  }, {
+    src: '~assets/scss/main.scss',
+    lang: 'scss'
+  }],
   /*
    ** Customize the progress-bar color
    */
