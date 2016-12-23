@@ -1,13 +1,9 @@
 <template>
   <div>
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">fiddleBrowser</h1>
-          <h2 class="subtitle">jsFiddle profile browser</h2>
-        </div>
-      </div>
-    </section>
+    <hero-title>
+      <h1 class="title">fiddleBrowser</h1>
+      <h2 class="subtitle">jsFiddle profile browser</h2>
+    </hero-title>
 
     <div class="container">
       <label for="username" class="label">Username</label>
@@ -46,11 +42,13 @@
 <script>
 import jsonp from 'jsonp';
 
-import ProjectsTable from '~components/ProjectsTable'
+import ProjectsTable from '~components/ProjectsTable';
+import HeroTitle from '~components/HeroTitle';
 
 export default {
   components: {
-    ProjectsTable
+    ProjectsTable,
+    HeroTitle
   },
   data: function() {
     return {
