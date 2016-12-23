@@ -13,6 +13,9 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
     ]
   },
+  build: {
+    vendor: ['jsonp'] // Add jsonp in the vendor.bundle.js
+  },
   /*
   ** Global CSS
   */

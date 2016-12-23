@@ -5,6 +5,7 @@
   "author": "Belar <belar@belardesign.com>",
   "private": true,
   "dependencies": {
+    "jsonp": "^0.2.1",
     "nuxt": "latest"
   },
   "scripts": {
