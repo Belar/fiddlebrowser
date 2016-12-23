@@ -12,5 +12,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
+  },
+  "devDependencies": {
+    "node-sass": "^4.1.1",
+    "sass-loader": "^4.1.1"
   }
 }
