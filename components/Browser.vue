@@ -1,21 +1,21 @@
 <template>
   <div class="container">
     <label for="username" class="label">Username</label>
-    <p class="control has-addons">
+    <div class="control has-addons">
       <input name="username" class="input is-expanded" type="text" v-model="nick" @keyup.enter="fetchFiddles()">
       <button class="button is-primary" :class="{'is-loading': loading, 'is-disabled' : loading }" @click="fetchFiddles()">Fetch fiddles</button>
-    </p>
+    </div>
     <div class="columns">
       <div class="column is-8">
         <label for="search" class="label">Search phrase</label>
-        <p class="control">
+        <div class="control">
           <input name="search" class="input" type="text" v-model="search">
           <small>Searches through title, description and framework</small>
-        </p>
+        </div>
       </div>
       <div class="column">
         <label for="limit" class="label">Fiddle limit</label>
-        <p class="control">
+        <div class="control">
           <span class="select is-fullwidth">
             <select name="limit" v-model="limit" @change="fetchFiddles()">
               <option :value="5">5</option>
@@ -25,7 +25,7 @@
             </select>
           </span>
           <small>Auto-refetch included</small>
-        </p>
+        </div>
       </div>
     </div>
     <projects-table :fiddles="fiddles" :search="search"></projects-table>
