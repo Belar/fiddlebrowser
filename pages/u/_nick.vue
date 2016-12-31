@@ -34,7 +34,7 @@
           </p>
         </div>
       </div>
-      <projects-table :projects="projects"></projects-table>
+      <projects-table :fiddles="fiddles" :search="search"></projects-table>
     </div>
   </div>
 </template>
@@ -60,19 +60,6 @@ export default {
       limit: 10,
       fiddles: [],
       loading: false
-    }
-  },
-  computed: {
-    projects: function() {
-      let fiddles = this.fiddles;
-      let searchData = this.search.toLowerCase();
-
-      function searchPhrase(fiddle) {
-        if (fiddle.title.toLowerCase().indexOf(searchData) !== -1 || fiddle.description.toLowerCase().indexOf(searchData) !== -1 || fiddle.framework.toLowerCase().indexOf(searchData) !== -1) {
-          return true;
-        }
-      }
-      return fiddles.filter(searchPhrase);
     }
   },
   methods: {

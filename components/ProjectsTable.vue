@@ -1,5 +1,5 @@
 <template>
-  <table class="table" v-show="projects.length > 0">
+  <table class="table" v-show="filteredFiddles.length > 0">
     <thead>
       <tr>
         <th>Title</th>
@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="fiddle in projects">
+      <tr v-for="fiddle in filteredFiddles">
         <td>{{fiddle.title}}</td>
         <td>{{fiddle.description}}</td>
         <td>{{fiddle.framework}}</td>
@@ -25,6 +25,19 @@
 
 <script>
 export default {
-  props: ['projects']
+  props: ['fiddles', 'search'],
+  computed: {
+    filteredFiddles: function() {
+      let fiddles = this.fiddles;
+      let searchData = this.search.toLowerCase();
+
+      function searchPhrase(fiddle) {
+        if (fiddle.title.toLowerCase().indexOf(searchData) !== -1 || fiddle.description.toLowerCase().indexOf(searchData) !== -1 || fiddle.framework.toLowerCase().indexOf(searchData) !== -1) {
+          return true;
+        }
+      }
+      return fiddles.filter(searchPhrase);
+    }
+  },
 }
 </script>
