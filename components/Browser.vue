@@ -5,6 +5,7 @@
       <input name="username" class="input is-expanded" type="text" v-model="nick" @keyup.enter="fetchFiddles()">
       <button class="button is-primary" :class="{'is-loading': loading, 'is-disabled' : loading }" @click="fetchFiddles()">Fetch fiddles</button>
     </div>
+    <recent-profiles :showedProfiles="showedProfiles"></recent-profiles>
     <div class="columns">
       <div class="column is-8">
         <label for="search" class="label">Search phrase</label>
@@ -36,15 +37,18 @@
 import jsonp from 'jsonp';
 
 import ProjectsTable from '~components/ProjectsTable';
+import RecentProfiles from '~components/RecentProfiles';
 
 export default {
   props: ['nickParam'],
   components: {
-    ProjectsTable
+    ProjectsTable,
+    RecentProfiles
   },
   data: function() {
     return {
       nick: this.nickParam ? this.nickParam : '',
+      showedProfiles: [],
       search: '',
       limit: 10,
       fiddles: [],
@@ -67,9 +71,15 @@ export default {
           } else {
             this.fiddles = data.list;
             this.loading = false;
+            this.addShowedProfile();
           }
         });
       }
+    },
+    addShowedProfile: function() {
+      // Limit amount of profiles
+      this.showedProfiles = this.showedProfiles.slice(0, 4);
+      this.showedProfiles.push(this.nick);
     }
   },
   mounted: function() {
