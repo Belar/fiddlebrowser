@@ -23,6 +23,13 @@ export default {
         this.showedProfiles.push(this.currentProfile);
         localStorage.setItem('recentProfiles', JSON.stringify(this.showedProfiles));
       }
+    },
+    getRecentProfilesStorage: function() {
+      let recentProfilesStorage = JSON.parse(localStorage.getItem('recentProfiles'));
+
+      if (recentProfilesStorage) {
+        this.showedProfiles = recentProfilesStorage;
+      }
     }
   },
   watch: {
@@ -31,11 +38,7 @@ export default {
     }
   },
   mounted: function() {
-    let recentProfilesStorage = JSON.parse(localStorage.getItem('recentProfiles'));
-
-    if (recentProfilesStorage) {
-      this.showedProfiles = recentProfilesStorage;
-    }
+    this.getRecentProfilesStorage();
   }
 }
 </script>
