@@ -21,7 +21,7 @@ export default {
         // Limit amount of profiles
         this.showedProfiles = this.showedProfiles.slice(0, 4);
         this.showedProfiles.push(this.currentProfile);
-        localStorage.setItem('recentProfiles', this.showedProfiles);
+        localStorage.setItem('recentProfiles', JSON.stringify(this.showedProfiles));
       }
     }
   },
