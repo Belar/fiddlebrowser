@@ -29,6 +29,13 @@ export default {
     'currentProfile': function() {
       this.addShowedProfile();
     }
+  },
+  mounted: function() {
+    let recentProfilesStorage = JSON.parse(localStorage.getItem('recentProfiles'));
+
+    if (recentProfilesStorage) {
+      this.showedProfiles = recentProfilesStorage;
+    }
   }
 }
 </script>
