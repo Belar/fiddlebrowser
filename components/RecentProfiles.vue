@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  props: ['showedProfiles']
+  props: ['showedProfiles'],
+  watch: {
+    'showedProfiles': function() {
+      localStorage.setItem('recentProfiles', this.showedProfiles);
+    }
+  }
 }
 </script>
 
