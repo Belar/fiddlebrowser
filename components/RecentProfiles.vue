@@ -25,10 +25,12 @@ export default {
       }
     },
     getRecentProfilesStorage: function() {
-      let recentProfilesStorage = JSON.parse(localStorage.getItem('recentProfiles'));
+      if (typeof localStorage !== 'undefined') {
+        let recentProfilesStorage = JSON.parse(localStorage.getItem('recentProfiles'));
 
-      if (recentProfilesStorage) {
-        this.showedProfiles = recentProfilesStorage;
+        if (recentProfilesStorage) {
+          this.showedProfiles = recentProfilesStorage;
+        }
       }
     }
   },
