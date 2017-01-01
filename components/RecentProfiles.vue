@@ -8,8 +8,23 @@
 
 <script>
 export default {
-  props: ['showedProfiles'],
+  props: ['currentProfile'],
+  data: function() {
+    return {
+      showedProfiles: []
+    }
+  },
+  methods: {
+    addShowedProfile: function() {
+      // Limit amount of profiles
+      this.showedProfiles = this.showedProfiles.slice(0, 4);
+      this.showedProfiles.push(this.currentProfile);
+    }
+  },
   watch: {
+    'currentProfile': function() {
+      this.addShowedProfile();
+    },
     'showedProfiles': function() {
       localStorage.setItem('recentProfiles', this.showedProfiles);
     }
