@@ -16,10 +16,13 @@ export default {
   },
   methods: {
     addShowedProfile: function() {
-      // Limit amount of profiles
-      this.showedProfiles = this.showedProfiles.slice(0, 4);
-      this.showedProfiles.push(this.currentProfile);
-      localStorage.setItem('recentProfiles', this.showedProfiles);
+      // Check if profile already present
+      if (this.showedProfiles.indexOf(this.currentProfile) === -1) {
+        // Limit amount of profiles
+        this.showedProfiles = this.showedProfiles.slice(0, 4);
+        this.showedProfiles.push(this.currentProfile);
+        localStorage.setItem('recentProfiles', this.showedProfiles);
+      }
     }
   },
   watch: {
