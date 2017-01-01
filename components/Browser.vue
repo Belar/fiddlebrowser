@@ -2,7 +2,7 @@
   <div class="container">
     <label for="username" class="label">Username</label>
     <div class="control has-addons">
-      <input name="username" class="input is-expanded" type="text" v-model="nick" @keyup.enter="fetchFiddles()">
+      <input name="username" class="input is-expanded" type="text" v-model.trim="nick" @keyup.enter="fetchFiddles()">
       <button class="button is-primary" :class="{'is-loading': loading, 'is-disabled' : loading }" @click="fetchFiddles()">Fetch fiddles</button>
     </div>
     <recent-profiles :currentProfile="currentProfile"></recent-profiles>
